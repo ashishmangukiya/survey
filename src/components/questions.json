@@ -1,0 +1,21 @@
+[{
+    "id":1,
+    "question":"How would you describe your employment status ?",
+    "options":["Employed full-time","Employed part-time","Freelance/contract employee","Self-employed","Unemployed"],
+    "selected":""
+},{
+    "id":2,
+    "question":"How many employees work at your company ?",
+    "options":["0-20","21-50","51-100","101-1,000","1,001+"],
+    "selected":""
+},{
+    "id":3,
+    "question":"How would you classify your role ?",
+    "options":["Individual Contributor","Manager","Director","1VP","Executive"],
+    "selected":""
+},{
+    "id":4,
+    "question":"How would you classify your industry ?",
+    "options":["Technology/software","Hospitality/dining","Services","Consulting","Entertainment"],
+    "selected":""
+}]
