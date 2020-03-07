@@ -1,25 +1,24 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-import questionsArray from '../questions.json'
 import {questionsSchema} from '../../schema'
 export const Questions = () => {
 	let history = useHistory();
 	let userData = JSON.parse(String(localStorage.getItem('USER')))
+	let questionsArray = JSON.parse(String(localStorage.getItem('QUESTIONS')))
+
 	if (userData == null) {
 		history.replace('/')
 	}
 	const [index, setIndex] = useState(Number(history.location.pathname[history.location.pathname.length - 1]))
 	const [questions, updateQuestions] = useState(questionsArray)
-
-
 	useEffect(() => {
 		setIndex(Number(history.location.pathname[history.location.pathname.length - 1]))
 	}, [history.location.pathname])
 
 	let changeQuestion = (index: number) => {
 		if (index >= questions.length - (questions.length - 1) && index <= questions.length) {
-			history.push(`/survey/question/${index}`)
+			history.push(`/question/${index}`)
 		}
 	}
 
@@ -32,11 +31,13 @@ export const Questions = () => {
 			updateData.push(data)
 		}
 		updateQuestions(updateData)
+		localStorage.setItem('QUESTIONS',JSON.stringify(updateData))
+
 	}
 
 	let onsubmit=()=>{
 		localStorage.setItem('QUESTIONS',JSON.stringify(questions))
-		history.replace('/survey/report')
+		history.replace('/report')
 	}
 
 	return (

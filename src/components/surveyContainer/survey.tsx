@@ -1,9 +1,13 @@
 import React from 'react'
 import logo from '../../assets/survey-logo.jpg'
 import { useHistory } from "react-router-dom";
+import questionsArray from '../questions.json'
 
 export const Survey=()=> {
     let history = useHistory();
+    localStorage.removeItem('USER')
+    localStorage.setItem('QUESTIONS',JSON.stringify(questionsArray))
+
 return (
     <div className="header">
         <div className="main-box">

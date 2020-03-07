@@ -4,7 +4,11 @@ import { questionsSchema } from '../../schema';
 
 export const Report = () => {
 	let history = useHistory();
+	console.log('opp')
 	let userDetails = JSON.parse(String(localStorage.getItem('USER')))
+	window.onpopstate=(data:any)=>{
+		history.replace('/')
+	}
 	if (userDetails == null) {
 		history.replace('/')
 	}
@@ -28,14 +32,14 @@ export const Report = () => {
 							<div className="questions">
 								{
 									questions.map((question: questionsSchema, i: number) => (
-										<div className="align-questions-col">
-											<div key={i} className="align-questions">
+										<div key={i} className="align-questions-col">
+											<div className="align-questions">
 												<b>{question.id + '.'}&nbsp;</b>
 												<div>{question.question}</div>
 											</div>
-											<div key={i} className="align-questions">
+											<div className="align-questions">
 												<b>Ans.&nbsp;</b>
-												<div>{question.selected}</div>
+												<div>{question.selected.length?question.selected:'not specified'}</div>
 											</div>
 										</div>
 									))

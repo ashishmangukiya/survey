@@ -8,12 +8,12 @@ import { Report } from './components/reportContainer/report';
 
 function App() {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}/`}>
       <Switch>
         <Route exact path="/" component={Survey}/>
         <Route exact path="/survey" component={SurveyUserData}/>
-        <Route exact path="/survey/question/:id" component={Questions}/>
-        <Route exact path="/survey/report" component={Report}/>
+        <Route exact path="/question/:id" component={Questions}/>
+        <Route exact path="/report" component={Report}/>
       </Switch>
   </Router>
   );

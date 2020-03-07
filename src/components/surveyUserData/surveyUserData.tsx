@@ -68,7 +68,7 @@ export const SurveyUserData = () => {
 		}
 		if (name.length && email.length && reg.test(email) && countryName.length && age.length) {
 			localStorage.setItem('USER', JSON.stringify({ name, email, country: countryName, age, gender }))
-			history.replace('/survey/question/1')
+			history.replace('/question/1')
 		}
 	}
 
